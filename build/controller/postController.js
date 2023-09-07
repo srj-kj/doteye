@@ -8,10 +8,7 @@ const getQoutes = async (req, res, next) => {
         return res.status(200).json(result);
     }
     catch (error) {
-        console.error(error);
-        res
-            .status(500)
-            .json({ error: "An error occurred while fetching or parsing the data." });
+        next(error);
     }
 };
 exports.getQoutes = getQoutes;
@@ -22,10 +19,7 @@ const getAverage = async (req, res, next) => {
         return res.status(200).json(response);
     }
     catch (error) {
-        console.error(error);
-        res
-            .status(500)
-            .json({ error: "An error occurred while fetching or parsing the data." });
+        next(error);
     }
 };
 exports.getAverage = getAverage;
@@ -38,10 +32,7 @@ const getSlippage = async (req, res, next) => {
         return res.status(200).json(response);
     }
     catch (error) {
-        console.error(error);
-        res
-            .status(500)
-            .json({ error: "An error occurred while fetching or parsing the data." });
+        next(error);
     }
 };
 exports.getSlippage = getSlippage;
