@@ -10,11 +10,8 @@ export const getQoutes = async (
   try {
     const result = await qoutes();
     return res.status(200).json(result);
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while fetching or parsing the data." });
+  }catch (error) {
+    next(error);
   }
 };
 export const getAverage = async (
@@ -27,10 +24,7 @@ export const getAverage = async (
     const response = await average(results)
     return res.status(200).json(response);
   } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while fetching or parsing the data." });
+    next(error);
   }
 };
 
@@ -49,9 +43,6 @@ export const getSlippage = async (
     return res.status(200).json(response);
  
   }catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while fetching or parsing the data." });
+    next(error);
   }
 }
