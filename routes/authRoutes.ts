@@ -25,7 +25,7 @@ const AUTH_OPTIONS = {
 
 async function verifyCallback(req:any,accessToken: string, refreshToken:string, profile:any, done:any) {
     console.log('Google profile', profile)
-    await User.create(profile)
+   // await User.create(profile)
     done(null, profile) 
 }
 

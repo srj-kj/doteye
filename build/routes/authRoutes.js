@@ -22,7 +22,7 @@ const AUTH_OPTIONS = {
 };
 async function verifyCallback(req, accessToken, refreshToken, profile, done) {
     console.log('Google profile', profile);
-    await userSchema_1.default.create(profile);
+    // await User.create(profile)
     done(null, profile);
 }
 // Configure the Google strategy for use by Passport.js

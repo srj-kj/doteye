@@ -10,7 +10,7 @@ export const getQoutes = async (
   try {
     const result = await qoutes();
     return res.status(200).json(result);
-  }catch (error) {
+  } catch (error) {
     next(error);
   }
 };
@@ -21,7 +21,7 @@ export const getAverage = async (
 ) => {
   try {
     const results = await qoutes();
-    const response = await average(results)
+    const response = average(results);
     return res.status(200).json(response);
   } catch (error) {
     next(error);
@@ -34,15 +34,11 @@ export const getSlippage = async (
   next: NextFunction
 ) => {
   try {
-
     const results = await qoutes();
-    const avg = await average(results)
-    console.log(avg);
-    
-    const response = await slippage(results,avg)
+    const avg = average(results);
+    const response = slippage(results, avg);
     return res.status(200).json(response);
- 
-  }catch (error) {
+  } catch (error) {
     next(error);
   }
-}
+};

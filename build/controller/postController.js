@@ -15,7 +15,7 @@ exports.getQoutes = getQoutes;
 const getAverage = async (req, res, next) => {
     try {
         const results = await (0, postHelper_1.qoutes)();
-        const response = await (0, postHelper_1.average)(results);
+        const response = (0, postHelper_1.average)(results);
         return res.status(200).json(response);
     }
     catch (error) {
@@ -26,9 +26,8 @@ exports.getAverage = getAverage;
 const getSlippage = async (req, res, next) => {
     try {
         const results = await (0, postHelper_1.qoutes)();
-        const avg = await (0, postHelper_1.average)(results);
-        console.log(avg);
-        const response = await (0, postHelper_1.slippage)(results, avg);
+        const avg = (0, postHelper_1.average)(results);
+        const response = (0, postHelper_1.slippage)(results, avg);
         return res.status(200).json(response);
     }
     catch (error) {
